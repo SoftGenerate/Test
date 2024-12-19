@@ -21,7 +21,7 @@ const Signu = () => {
       <Box 
           sx={{
               height: '100vh', // Full viewport height
-              backgroundImage: `url(${backgroundImage})`,  // Replace with your image URL
+              backgroundImage: '',  // Replace with your image URL
               backgroundSize: 'cover', // Ensures the image covers the whole area
               backgroundPosition: 'center', // Centers the background image
               backgroundRepeat: 'no-repeat', // Prevents repeating the image
