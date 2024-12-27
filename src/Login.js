@@ -16,12 +16,17 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const defaultEmail = 'test@example.com';
+  const defaultPassword = 'password123';
+
+  // Toggle password visibility
   const handleClickShowPassword = () => setShowPassword((prev) => !prev);
 
+  // Handle form submission
   const onSubmit = (data) => {
     console.log('Login Data:', data);
 
-    if (data.email === 'test@example.com' && data.password === 'password123') {
+    if (data.email === defaultEmail && data.password === defaultPassword) {
       console.log('Login successful');
       toast.success('Login successful!', { autoClose: 2000 });
       setTimeout(() => navigate('/dashboard'), 2000); // Redirect after showing success message
@@ -65,6 +70,7 @@ const Login = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                defaultValue={defaultEmail} // Auto-fill email
                 {...register('email', { required: 'Email is required' })}
                 error={!!errors.email}
                 helperText={errors.email?.message}
@@ -75,6 +81,7 @@ const Login = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                defaultValue={defaultPassword} // Auto-fill password
                 {...register('password', { required: 'Password is required' })}
                 error={!!errors.password}
                 helperText={errors.password?.message}
